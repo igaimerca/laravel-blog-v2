@@ -24,7 +24,7 @@ class Comment extends Model
   {
     return $this->belongsTo(Post::class, 'post_id', 'id');
   }
-  public static function _validateAndSaveComment(Request $request, $postID)
+  public static function _validateAndSaveComment(Request $request, $post_ID)
   {
     $toBeValidated = [
       'content' => 'required'
@@ -45,7 +45,7 @@ class Comment extends Model
     $comment = new self;
     $comment->uuid = GeneralLibrary::_uuid_v4();
     $comment->user_id = auth()->user()->id;
-    $comment->post_id = $postID;
+    $comment->post_id = $post_ID;
     $comment->content = $validatedData['content'];
 
     $comment->save();
