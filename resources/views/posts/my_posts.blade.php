@@ -45,7 +45,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+      </div>
     <div class="col-md-4 mx-auto my-5">
         {{ $posts->links() }}
     </div>

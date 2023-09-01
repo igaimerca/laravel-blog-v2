@@ -15,13 +15,13 @@ class PostController extends Controller
    */
   public function index()
   {
-    $posts = Post::whereNotNull('published_at')->paginate(3);
+    $posts = Post::whereNotNull('published_at')->simplePaginate(3);
     return view('posts.index', ['posts' => $posts]);
   }
   public function my_posts()
   {
     $userId = auth()->id();
-    $my_posts = Post::where('user_id', $userId)->paginate();
+    $my_posts = Post::where('user_id', $userId)->simplePaginate(3);
     return view("posts.my_posts", ['posts' => $my_posts]);
   }
   /**
