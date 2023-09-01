@@ -23,7 +23,8 @@
                 @foreach ($posts as $post)
                     <tr>
                         <th>{{ $post['id'] }}</th>
-                        <td>{{ $post['title'] }}</td>
+                        <td><a href="{{ route('posts.show', $post->uuid) }}" class="font-weight-bold">
+                                        {{ $post->title }}</a></td>
                         <td class="col-md-2">{{ $post['content'] }}</td>
                         {{-- <td>{{ $post->user->name }}</td> --}}
                         <td>{{ $post->user ? $post->user->name . '(you)' : 'User Not Found !' }}</td>
