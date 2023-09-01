@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/my_posts', [PostController::class, 'my_posts'])->name('posts.my_posts');
 Route::get('/posts/show/{uuid}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/posts/edit/{uuid?}', [PostController::class, 'edit'])->name('posts.edit')->middleware();
+Route::get('/posts/edit/{uuid?}', [PostController::class, 'edit'])->name('posts.edit')->middleware('auth');
 Route::post('/posts/edit/{uuid?}', [PostController::class, 'edit'])->middleware('auth');
 Route::get('/posts/delete/{uuid}', [PostController::class, 'delete'])->name('posts.delete');
 
