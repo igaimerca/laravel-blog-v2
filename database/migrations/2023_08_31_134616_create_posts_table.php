@@ -15,7 +15,7 @@ return new class extends Migration
       $table->id();
       $table->string('uuid')->unique();
       $table->string('title');
-      $table->json('content');
+      $table->longText('content');
       $table->date('published_at')->nullable();
       $table->unsignedBigInteger('user_id');
       $table->timestamps();

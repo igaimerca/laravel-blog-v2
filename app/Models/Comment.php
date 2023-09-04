@@ -12,9 +12,9 @@ class Comment extends Model
 {
   use HasFactory;
 
-  protected $casts = [
-    'content' => 'array',
-  ];
+  // protected $casts = [
+  //   'content' => 'array',
+  // ];
 
   public function user()
   {
