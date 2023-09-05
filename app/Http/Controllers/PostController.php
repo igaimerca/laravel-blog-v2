@@ -18,6 +18,7 @@ class PostController extends Controller
     $posts = Post::whereNotNull('published_at')->simplePaginate(3);
     return view('posts.index', ['posts' => $posts]);
   }
+
   public function my_posts()
   {
     $userId = auth()->id();
