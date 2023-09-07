@@ -1,72 +1,53 @@
-@extends('layouts.links')
+@extends('layouts.auth_template')
 
 @section('content')
-<div class="main-wrapper login-body">
-    <div class="login-wrapper">
-        <div class="container">
-            <img class="img-fluid logo-dark mb-2" src="assets/img/logo2.png" alt="Logo">
-            
-            <div class="loginbox">
-                <div class="login-right">
-                    <div class="login-right-wrap">
-                        <h1>Register</h1>
-                        <p class="account-subtitle">Access to our dashboard</p>
-                        
-                        <!-- Registration Form -->
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
+    <div class="loginbox">
+        <div class="login-right">
+            <div class="login-right-wrap">
+                <h1>Register</h1>
 
-                            <div class="form-group">
-                                <label class="form-control-label">Name</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Email Address</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Password</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Confirm Password</label>
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-
-                            <div class="form-group mb-0">
-                                <button class="btn btn-lg btn-block btn-primary w-100" type="submit">Register</button>
-                            </div>
-                        </form>
-                        <!-- /Registration Form -->
-                        
-                        <div class="login-or">
-                            <span class="or-line"></span>
-                            <span class="span-or">or</span>
-                        </div>
-
-                        <div class="text-center dont-have">Already have an account? <a href="{{ route('login') }}">Login</a></div>
+                <!-- Form -->
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label class="form-control-label" for="name">{{ ucfirst(__('body.name')) }}</label>
+                        <input class="form-control" name="name" id="name" type="text"
+                            value="{{ old('name') }}" autofocus>
                     </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">{{ ucfirst(__('body.email')) }}</label>
+                        <input class="form-control" type="email" id="email" name="email"
+                            value="{{ old('email') }}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="password">{{ ucfirst(__('body.password')) }}</label>
+                        <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label"
+                            for="password_confirmation">{{ ucfirst(__('body.confirm_passowrd')) }}</label>
+                        <input class="form-control" type="password" id="password_confirmation" name="password_confirmation">
+                    </div>
+                    <div class="form-group mb-0">
+                        <button class="btn btn-lg btn-block btn-primary w-100"
+                            type="submit">{{ ucfirst(__('body.register')) }}</button>
+                    </div>
+                </form>
+                <!-- /Form -->
+
+                <!-- Social Login
+                <div class="login-or">
+                    <span class="or-line"></span>
+                    <span class="span-or">or</span>
                 </div>
+                <div class="social-login">
+                    <span>Register with</span>
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a><a href="#" class="google"><i class="fab fa-google"></i></a>
+                </div>
+                /Social Login -->
+                <div class="text-center dont-have">{{ ucfirst(__('body.already_have_account_question')) }} <a
+                        href="{{ route('login') }}">{{ ucfirst(__('body.login')) }}</a></div>
             </div>
         </div>
     </div>
-</div>
 @endsection

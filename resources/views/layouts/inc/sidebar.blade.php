@@ -1,4 +1,5 @@
  <div class="sidebar" id="sidebar">
+
      <div class="sidebar-header">
          <div class="sidebar-logo">
              <a href="/">
