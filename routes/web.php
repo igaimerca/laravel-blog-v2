@@ -31,4 +31,8 @@ Route::post('/posts/edit/{uuid?}', [PostController::class, 'edit']);
 Route::post('/posts/delete/{uuid}', [PostController::class, 'delete'])->name('posts.delete');
 
 // Comments
+// Route::middleware(['role:SuperAdmin', 'permission:show comments'])->group(function () {
+//   Route::get("/comments", [CommentController::class, 'index']);
+// });
+Route::get("/comments", [CommentController::class, 'index']);
 Route::post("/comments/edit/{post_uuid?}", [CommentController::class, 'edit'])->name('comments.edit');

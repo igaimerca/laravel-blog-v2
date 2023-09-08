@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
   /**
+   * Get all comments
+   *
+   */
+  public function index()
+  {
+    $comments = Comment::all();
+    return view("comments.home", ['comments' => $comments]);
+   }
+  /**
    * Add a new comment.
    *
    */

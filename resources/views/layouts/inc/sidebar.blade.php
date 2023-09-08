@@ -26,7 +26,10 @@
                                  {{ request()->is('posts/edit/*') ? 'Edit' : 'Create' }} Post
                              </a>
                          </li>
-
+                         @can('show comments')
+                             <li><a class="{{ request()->is('comments') ? 'active' : '' }}" href="/comments">Comments</a>
+                             </li>
+                         @endcan
 
                      </ul>
                  </li>
